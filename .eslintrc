@@ -1,0 +1,29 @@
+{
+    "parserOptions": {
+        "ecmaVersion": 2018,
+        // this is saying to our parser that it should look for modules that that are written up to 2018 and not ES6(written in 2016) this is because if we use older versions only like the ES6, it results to bugs in our ESLint configuration
+        "sourceType": "module"
+    },
+    "extends": "eslint:recommended",
+    // we used ESLint recommended set of rules for linting.... we could customize this and make changes to them only if we choose to.... To see more about the rules checkout "ESLint Rules" on google
+    "env": {
+        "es6": true,
+        "browser": true,
+        "jquery": true,
+        "node": true
+        /*   Now with all this we let ESLint know a few things in our environment
+    Specifically we are using ES6 and jQuery and we are working in the browser. If we didn't include these rules, our linter will throw incorrect errors (such as $ is undefined). The example above occurs when ESLint doesn't know that jQuery is supposed to be part of the project.
+
+        */
+    },
+    "rules": {
+        "semi": 1,
+        "indent": ["warn", 2]
+        /*
+        We add a few basic rules.
+
+        First, we are using semicolons and setting the error level to 1, which means the linter will give us a warning about missing semicolons. (An error level of 2 means the linter will throw an error instead - stopping our code in its tracks.)
+        We also add a rule for indentation. We pass "warn" instead of 1. The second argument in the array is the number of spaces our code should be indented, so this is a little confusing. In this case, 2 means indented spaces, but it often means the error level. We'll cover the error level more shortly.
+        */
+    }
+}
